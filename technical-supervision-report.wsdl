@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.ws.equrylys.kz/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="TechnicalSupervisionReportService" targetNamespace="http://soap.ws.equrylys.kz/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.ws.equrylys.kz/" elementFormDefault="unqualified" targetNamespace="http://soap.ws.equrylys.kz/" version="1.0">
+
+  <xs:element name="sendTechnicalSupervisionReport" type="tns:sendTechnicalSupervisionReport"/>
+
+  <xs:element name="sendTechnicalSupervisionReportResponse" type="tns:sendTechnicalSupervisionReportResponse"/>
+
+  <xs:complexType name="sendTechnicalSupervisionReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:technicalSupervisionReportRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="technicalSupervisionReportRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="builderBin" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="changes" nillable="true" type="tns:projectChange"/>
+      <xs:element minOccurs="0" name="designSupervisionBin" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="engineers" nillable="true" type="tns:engineer"/>
+      <xs:element minOccurs="0" name="investorBin" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="photos" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="prescriptions" nillable="true" type="tns:prescription"/>
+      <xs:element minOccurs="0" name="projectName" type="xs:string"/>
+      <xs:element minOccurs="0" name="requirements" type="tns:requirement"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="subbuilders" nillable="true" type="tns:subBuilder"/>
+      <xs:element minOccurs="0" name="systemCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="systemId" type="xs:string"/>
+      <xs:element minOccurs="0" name="technicalSupervisionBin" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="technicalSupervisionExperts" nillable="true" type="tns:person"/>
+      <xs:element minOccurs="0" name="ticketDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="ticketNumber" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="projectChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="approveDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="approveStatus" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="reason" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="engineer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificateDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="certificateIssuer" type="xs:string"/>
+      <xs:element minOccurs="0" name="certificateNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="organizationBin" type="xs:string"/>
+      <xs:element minOccurs="0" name="person" type="tns:person"/>
+      <xs:element minOccurs="0" name="specialization" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="iin" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="prescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="fixDate" type="xs:dateTime"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="photos" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="comment" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="satisfy" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="subBuilder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bin" type="xs:string"/>
+      <xs:element minOccurs="0" name="workType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendTechnicalSupervisionReportResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:technicalSupervisionReportResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="technicalSupervisionReportResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sendTechnicalSupervisionReportResponse">
+    <wsdl:part element="tns:sendTechnicalSupervisionReportResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendTechnicalSupervisionReport">
+    <wsdl:part element="tns:sendTechnicalSupervisionReport" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TechnicalSupervisionReport">
+    <wsdl:operation name="sendTechnicalSupervisionReport">
+      <wsdl:input message="tns:sendTechnicalSupervisionReport" name="sendTechnicalSupervisionReport">
+    </wsdl:input>
+      <wsdl:output message="tns:sendTechnicalSupervisionReportResponse" name="sendTechnicalSupervisionReportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TechnicalSupervisionReportServiceSoapBinding" type="tns:TechnicalSupervisionReport">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendTechnicalSupervisionReport">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="sendTechnicalSupervisionReport">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendTechnicalSupervisionReportResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TechnicalSupervisionReportService">
+    <wsdl:port binding="tns:TechnicalSupervisionReportServiceSoapBinding" name="TechnicalSupervisionReportPort">
+      <soap12:address location="http://localhost:8080/services/technical-supervision-report"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
